@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Students</title>
+</head>
+<body>
+    <h1>Students with Hobby: {{ hobby }}</h1>
+    <ul>
+        {% for student in students %}
+        <li>{{ student.first_name }} {{ student.last_name }} - Hobbies: 
+            {% for hobby in student.hobbies.all %}
+            {{ hobby.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
